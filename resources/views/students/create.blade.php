@@ -34,13 +34,23 @@
     function validateForm() {
         var phone = document.getElementById('phone').value;
         var icNumber = document.getElementById('ic_number').value;
+        var dob = document.getElementById('dob').value;
 
         if (isNaN(phone) || isNaN(icNumber)) {
-            alert('Phone number and IC number must be numeric.');
+            alert('Mesti hanya menggunakan Nombor untuk Nombor Telefon dan Nombor KP.');
+            return false;
+        }
+
+        var today = new Date();
+        var selectedDate = new Date(dob);
+
+        if (selectedDate > today) {
+            alert('Sila Masukkan tarikh yang betul dan sesuai.');
             return false;
         }
 
         return true;
     }
 </script>
+
 @endsection
